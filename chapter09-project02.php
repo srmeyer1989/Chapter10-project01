@@ -1,10 +1,10 @@
 <?php
 
-include 'travel-data.php';   
+include 'travel-data.php';
+include 'TravelPhoto.class.php';   
 
 asort($continents);
 asort($countries);
-
 
 ?>
 
@@ -55,22 +55,16 @@ asort($countries);
 
            <h1>Favorites</h1>
        
-      
          <!-- start post summaries -->
          <div class="well">
             <div class="row">
-               <?php foreach ($images as $img) { ?>
-            
-                  <div class="col-md-3">
-                     <a href="travel-image.php?id=<?php echo $img['id']; ?>" class="thumbnail">
-                     <img src="images/travel/square/<?php echo $img['path']; ?>" alt="...">
-                     </a>
-                  </div>
-
-               <?php } ?>
+               <?php 
+			   for($i = 0; $i < 6; $i++)
+			   {
+					echo $images[TravelPhoto::$photoID + $i];
+			   }
             </div>
          </div>
-
 
       </div>  <!-- end main content column -->
    </div>  <!-- end main content row -->
